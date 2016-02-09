@@ -24,9 +24,12 @@ package com.horstmann.violet.product.diagram.abstracts.property;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.font.TextAttribute;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.horstmann.violet.framework.swingextension.MultiLineLabel;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
@@ -142,7 +145,7 @@ public class MultiLineString implements Serializable, Cloneable {
 			getLabel().setAlignment(MultiLineLabel.CENTER);
 		else if (justification == RIGHT)
 			getLabel().setAlignment(MultiLineLabel.RIGHT);
-		
+
 	}
 
 	/**
@@ -205,6 +208,7 @@ public class MultiLineString implements Serializable, Cloneable {
 		if (this.label == null) {
 			this.label = new MultiLineLabel("");
 			Font font = new Font(Font.SANS_SERIF, Font.PLAIN, 12);
+
 			if (size == LARGE) {
 				font = font.deriveFont(Font.BOLD);
 			}
@@ -213,6 +217,7 @@ public class MultiLineString implements Serializable, Cloneable {
 			}
 			this.label.setFont(font);
 			this.label.setMarginWidth(2);
+
 		}
 		return this.label;
 	}

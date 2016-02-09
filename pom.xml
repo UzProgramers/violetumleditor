@@ -16,6 +16,7 @@
 		<module>violetplugin-sequencediagram</module>
 		<module>violetplugin-statediagram</module>
 		<module>violetplugin-usecasediagram</module>
+		<module>violetplugin-deploydiagram</module>
 		<module>violetproduct-swing</module>
 		<!--module>violetproduct-jnlp</module -->
 		<module>violetproduct-exe</module>

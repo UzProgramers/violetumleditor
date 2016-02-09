@@ -23,6 +23,9 @@ package com.horstmann.violet.product.diagram.abstracts.property;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Arc2D;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 
@@ -41,8 +44,10 @@ public class ArrowHead extends SerializableEnumeration
      * @param p a point on the axis of the arrow head
      * @param q the end point of the arrow head
      */
+	//public void draw (Graphics2D g2, Point2D p, Point2D q,)
     public void draw(Graphics2D g2, Point2D p, Point2D q)
     {
+    	
         GeneralPath path = getPath(p, q);
         Color oldColor = g2.getColor();
         if (this != V && this != HALF_V && this != NONE)
@@ -106,6 +111,52 @@ public class ArrowHead extends SerializableEnumeration
             path.lineTo((float) x2, (float) y2);
             path.closePath();
         }
+        else if (this == LOLLIPOP)
+        {
+        	int arrowLength = 5;
+        	double arrowAngle = Math.PI/2;
+            double startingX = x2 - arrowLength * Math.cos(angle + arrowAngle) +5;
+            double startingY = y2 - arrowLength * Math.sin(angle + arrowAngle);
+        	int radius = 8;
+        	double kappa = 0.5522847498;
+        	path.moveTo(startingX, startingY-radius); 
+        	path.curveTo(startingX+radius*kappa, startingY-radius, startingX+radius, startingY-radius*kappa, startingX+radius, startingY); 
+        	path.curveTo(startingX+radius, startingY+radius*kappa, startingX+radius*kappa, startingY+radius, startingX, startingY+radius );
+        	path.curveTo(startingX-radius*kappa, startingY+radius, startingX-radius, startingY+radius*kappa, startingX-radius, startingY);
+        	path.curveTo(startingX-radius, startingY-radius*kappa, startingX-radius*kappa, startingY-radius, startingX, startingY-radius );  	
+        	path.closePath();
+        	
+        }
+        
+        else if (this == LOLLIPOPWITHX)
+        {
+        	int arrowLength = 5;
+        	double arrowAngle = Math.PI/2;
+            double startingX = x2 - arrowLength * Math.cos(angle + arrowAngle) +5;
+            double startingY = y2 - arrowLength * Math.sin(angle + arrowAngle);
+        	int radius = 8;
+        	double kappa = 0.5522847498;
+        	double kappaLine = 0.7;
+        	path.moveTo(startingX, startingY-radius); 
+        	path.curveTo(startingX+radius*kappa, startingY-radius, startingX+radius, startingY-radius*kappa, startingX+radius, startingY); 
+        	path.curveTo(startingX+radius, startingY+radius*kappa, startingX+radius*kappa, startingY+radius, startingX, startingY+radius );
+        
+        	//path.lineTo(startingX-radius,startingY+radius/2 );
+            
+        	path.closePath();
+        	
+        }
+        
+        else if (this == LOLLIPOPC)
+        {
+ 
+            double startingX = x1;
+            double startingY = y1;
+        	
+        	path.moveTo(startingX, startingY); 
+        	path.quadTo(x1-10, y1+20, x2+10, y2);
+        	
+        }
         return path;
     }
 
@@ -129,6 +180,16 @@ public class ArrowHead extends SerializableEnumeration
 
     /** Array head type : this head is black filled diamond */
     public static final ArrowHead BLACK_DIAMOND = new ArrowHead();
+    
+    /** Lollipop */
+    public static final ArrowHead LOLLIPOP = new ArrowHead();
+    
+    /** Lollipop */
+    public static final ArrowHead LOLLIPOPSOCKET = new ArrowHead();
+    
+    public static final ArrowHead LOLLIPOPWITHX = new ArrowHead();
+    
+    public static final ArrowHead LOLLIPOPC = new ArrowHead();
 
     /** Internal Java UID */
     private static final long serialVersionUID = -3824887997763775890L;

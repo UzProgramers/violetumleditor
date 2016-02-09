@@ -48,6 +48,11 @@
 			<artifactId>violetplugin-objectdiagram</artifactId>
 			<version>${applicationVersion}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.horstmann.violet</groupId>
+			<artifactId>violetplugin-deploydiagram</artifactId>
+			<version>${applicationVersion}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>violetumleditor-${project.version}</finalName>
@@ -83,6 +88,7 @@
 						<folder>${project.parent.build.directory}../../violetplugin-usecasediagram/target/classes</folder>
 						<folder>${project.parent.build.directory}../../violetplugin-activitydiagram/target/classes</folder>
 						<folder>${project.parent.build.directory}../../violetplugin-objectdiagram/target/classes</folder>
+						<folder>${project.parent.build.directory}../../violetplugin-deploydiagram/target/classes</folder>
 					</folders>
 					<excludeArtifactIds>violet-framework,violetplugin-classdiagram,violetplugin-sequencediagram,violetplugin-statediagram,violetplugin-usecasediagram,violetplugin-activitydiagram,violetplugin-objectdiagram</excludeArtifactIds>
 				</configuration>

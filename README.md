@@ -1,3 +1,56 @@
+VIOLET UML EDITOR
+======================
+* Jakub Homlala
+* 331 IDZ B
+* jhomlala@gmail.com
+* 2016
+
+
+Co zostalo dodane:
+
+*  Dodano notacje ball/socket do diagramu klas
+*  Dodano notacje wejscia/wyjscia na zewnetrzne systemy w diagramie stanu
+*  Dodano diagram rozlokowania
+*  Dodano typowe grafiki do diagramu rozlokowania ( w stereotype node)
+*  Dodano mozliwosc dodania wlasnych grafik w diagramie rozlokowania ( w stereotype node)
+
+Testy:
+Notacja ball i socket powtarza sie zarowno w digramie klas jak i w diagramie rozlokowania(klasy dla obu diagramow sa indentyczne) dlatego tez testy dla tych klas znajduja sie w jednym miejscu, a dokladnie w diagramie rozlokowania.
+W diagramie rozlokowania dodano testy tylko dla komponentow pisanych przeze mnie. Nie dodawano testow komponentow skopiowanych z innych diagramow, np. package node.
+Testy dodawania plikow za pomoca FilePropertyEditora znajduja sie w paczce test w violet-framework. W diagramie stanu dodano testy klas odpowiadajacych za wejscie/wyjscie na zewnetrzne systemy.  Testy nie zostaly dodane tylko do klasy FileProperty, poniewaz ta klasa to tylko settery i gettery. W pozostalych przypadkach testy byly tworzone w miare mozliwosci(nie kiedy problemy wynikaly z tego ze trzeba bylo testowac grafike).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 How to get the software
 =======================
 

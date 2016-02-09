@@ -127,6 +127,7 @@ public class FileMenu extends JMenu
         initFileExportMenu();
         initFilePrintItem();
         initFileExitItem();
+     
 
         this.add(this.fileNewMenu);
         this.add(this.fileOpenItem);
@@ -137,10 +138,12 @@ public class FileMenu extends JMenu
         this.add(this.fileExportMenu);
         this.add(this.filePrintItem);
         this.add(this.fileExitItem);
+        
 
     }
 
-    /**
+ 
+	/**
      * Add frame listener to detect closing request
      */
     private void addWindowsClosingListener()
@@ -464,12 +467,16 @@ public class FileMenu extends JMenu
     public void initFileNewMenu()
     {
         List<IDiagramPlugin> diagramPlugins = this.pluginRegistry.getDiagramPlugins();
-
+        for (IDiagramPlugin plg : diagramPlugins)
+        {
+        //	System.out.println(plg.getName());
+        }
         // Step 1 : sort diagram plugins by categories and names
         SortedMap<String, SortedSet<IDiagramPlugin>> diagramPluginsSortedByCategory = new TreeMap<String, SortedSet<IDiagramPlugin>>();
         for (final IDiagramPlugin aDiagramPlugin : diagramPlugins)
         {
             String category = aDiagramPlugin.getCategory();
+            
             if (!diagramPluginsSortedByCategory.containsKey(category))
             {
                 SortedSet<IDiagramPlugin> newSortedSet = new TreeSet<IDiagramPlugin>(new Comparator<IDiagramPlugin>()
@@ -491,6 +498,7 @@ public class FileMenu extends JMenu
         // Step 2 : populate menu entry
         for (String aCategory : diagramPluginsSortedByCategory.keySet())
         {
+        	
             String categoryName = aCategory.replaceFirst("[0-9]*\\.", "");
             JMenu categorySubMenu = new JMenu(categoryName);
             Dimension preferredSize = categorySubMenu.getPreferredSize();
@@ -693,6 +701,10 @@ public class FileMenu extends JMenu
 
     @ResourceBundleBean(key = "file.exit")
     private JMenuItem fileExitItem;
+    
+    @ResourceBundleBean(key = "file.image")
+    private JMenuItem fileAddImage;
+    
 
     @ResourceBundleBean(key = "dialog.close.title")
     private String dialogCloseTitle;
