@@ -1,4 +1,4 @@
-package com.horstmann.violet.framework.propertyeditor.customeditor.test;
+/*package com.horstmann.violet.framework.propertyeditor.customeditor.test;
 
 import static org.junit.Assert.*;
 
@@ -24,7 +24,7 @@ import com.horstmann.violet.product.diagram.abstracts.property.FileProperty;
 import static org.junit.Assert.assertThat;
 
 public class FilePropertyEditorTest {
-
+*/
 	/*@Test
 	public void fileUploadComponentTest() {
 		FilePropertyEditorMockup mockup = new FilePropertyEditorMockup();
@@ -224,4 +224,4 @@ public class FilePropertyEditorTest {
 		}
 	}*/
 
-}
+//}
